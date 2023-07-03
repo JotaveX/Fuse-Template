@@ -1,0 +1,38 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+        <fuse-card class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow overflow-hidden ng-untouched ng-pristine ng-valid">
+            <p class="text-lg font-medium">Funcionario</p>
+            <p class="text-sm text-gray-600 mt-2">Preencha os campos abaixo para cadastrar um novo funcionario.</p>
+            <br>
+
+            <!-- Codigo -->
+            <mat-form-field class="fuse-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                <mat-label>Código</mat-label>
+                <input matInput placeholder="Code" required [(ngModel)]="funcionario.codigo">
+                <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+            </mat-form-field>
+
+            <!-- Nome -->
+            <mat-form-field class="fuse-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Name" required [(ngModel)]="funcionario.nome">
+                <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="fuse-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                <mat-label>Ativo</mat-label>
+                <mat-select [(ngModel)]="funcionario.ativo">
+                    <mat-option [value]="true">Sim</mat-option>
+                    <mat-option [value]="false">Não</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div mat-button class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
+                <button *ngIf="edit" (click)="delete()" mat-flat-button class="px-6 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-warn mat-mdc-button-base">Excluir</button>
+                <button mat-flat-button (click)="submit()" class="px-6 ml-3 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-primary mat-mdc-button-base">Salvar</button>
+            </div>
+        </fuse-card>
+    </div>
+</div>
