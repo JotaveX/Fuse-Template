@@ -11,6 +11,12 @@ import { mockApiServices } from 'app/mock-api';
 import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslocoRootModule } from './transloco-root.module';
+
+export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -25,6 +31,8 @@ const routerConfig: ExtraOptions = {
         BrowserModule,
         BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes, routerConfig),
+        NgxMaskModule.forRoot(),
+
 
         // Fuse, FuseConfig & FuseMockAPI
         FuseModule,
@@ -35,10 +43,15 @@ const routerConfig: ExtraOptions = {
         CoreModule,
 
         // Layout module of your application
-        LayoutModule
+        LayoutModule,
+
+        HttpClientModule,
     ],
     bootstrap   : [
         AppComponent
+    ],
+    providers   : [
+        {provide: MAT_DATE_LOCALE, useValue: 'pt-GB'},
     ]
 })
 export class AppModule

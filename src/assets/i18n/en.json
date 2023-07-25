@@ -1,5 +1,27 @@
 {
     "welcome-back": "Welcome back",
     "Project": "Project",
-    "Analytics": "Analytics"
+    "Analytics": "Analytics",
+    "navigation":{
+        "Exemple":"Exemple",
+        "Funcionario":"Employer",
+        "Formulario":"Formulario"
+    },
+    "forms":{
+        "Formulario":"Form",
+        "SubTitulo":"Fill in the fields below to register a new form.",
+        "Codigo":"Code",
+        "Nome":"Name",
+        "Data":"Date",
+        "EstadoCivil": "Marital status",
+        "Salvar":"Save",
+        "Excluir":"Delete",
+        "Funcionario":"Employer",
+        "Administrador":"Administrator",
+        "Celular":"Phone",
+        "Email":"Email",
+        "CEP":"Zip Code",
+        "RG":"national ID card",
+        "CPF":"CPF"
+    }
 }

@@ -1,0 +1,40 @@
+
+
+ <div class="flex flex-col flex-auto min-w-0">
+
+  <!-- Main -->
+  <div class="flex-auto p-6 sm:p-10">
+
+      <!-- CONTENT GOES HERE -->
+      <div class="h-400 min-h-400 max-h-400 rounded-2xl">
+          <!-- Search Bar -->
+          <mat-form-field class="w-full mb-2">
+            <input matInput placeholder="Search..." mask="0*" (keyup)="searchByName($event.target.value)">
+        </mat-form-field>
+
+        <!-- Card -->
+         <fuse-card class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow ng-untouched ng-pristine ng-valid overflow-visible hover:shadow-lg"
+         *ngFor="let formulario of formularios" 
+         routerLink="edit/{{formulario.id}}">
+
+           <!-- Conteudo -->
+       <div class="flex flex-col flex-auto order-2 md:order-1 mb-2 ml-4">
+
+           <!-- Titulo -->
+           <div class="text-2xl font-semibold flex">
+               <mat-icon svgIcon="heroicons_solid:user"></mat-icon>
+               <div class="whitespace-nowrap ml-3">{{formulario.codigo}}</div>
+           </div>
+       </div>
+      </fuse-card>
+          <!-- Add button -->
+          <div class="fixed bottom-0 right-15 mb-10 mr-10 z-99">
+              <a mat-fab matTooltip="Add" routerLink="new">
+                <mat-icon svgIcon="heroicons_solid:plus"></mat-icon>
+              </a>
+          </div>
+      </div>
+
+  </div>
+
+</div>

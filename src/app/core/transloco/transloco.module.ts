@@ -17,11 +17,11 @@ import { TranslocoHttpLoader } from 'app/core/transloco/transloco.http-loader';
                         label: 'English'
                     },
                     {
-                        id   : 'tr',
-                        label: 'Turkish'
+                        id   : 'pt',
+                        label: 'Portugues'
                     }
                 ],
-                defaultLang         : 'en',
+                defaultLang         : 'pt',
                 fallbackLang        : 'en',
                 reRenderOnLangChange: true,
                 prodMode            : true

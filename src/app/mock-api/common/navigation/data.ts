@@ -17,12 +17,12 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/funcionario'
     },
     {
-        id   : 'pizza',
-        title: 'Pizza',
-        type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/pizza'
-    }
+        id   : 'formulario',
+        title: 'Formulario',
+        type : 'basic', 
+        icon : 'heroicons_outline:document-report',
+        link : '/formulario'
+    },
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {

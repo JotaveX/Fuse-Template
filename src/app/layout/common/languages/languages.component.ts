@@ -14,7 +14,7 @@ export class LanguagesComponent implements OnInit, OnDestroy
 {
     availableLangs: AvailableLangs;
     activeLang: string;
-    flagCodes: any;
+    flagCodes: { [key: string]: string };
 
     /**
      * Constructor
@@ -52,8 +52,9 @@ export class LanguagesComponent implements OnInit, OnDestroy
         // Set the country iso codes for languages for flags
         this.flagCodes = {
             'en': 'us',
-            'tr': 'tr'
+            'pt': 'br'
         };
+        //console.log(this.availableLangs);
     }
 
     /**

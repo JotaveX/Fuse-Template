@@ -1,0 +1,24 @@
+{
+    "navigation":{
+        "Exemple":"Exemple",
+        "Funcionario":"Funcionario",
+        "Formulario":"Formulario"
+    },
+    "forms":{
+        "Formulario":"Formulario",
+        "SubTitulo":"Preencha os campos abaixo para cadastrar um novo formulario.",
+        "Codigo":"Codigo",
+        "Nome":"Nome",
+        "Data":"Data",
+        "EstadoCivil": "Estado Civil",
+        "Salvar":"Salvar",
+        "Excluir":"Excluir",
+        "Funcionario":"Funcionario",
+        "Administrador":"Administrador",
+        "Celular":"Celular",
+        "Email":"Email",
+        "CEP":"CEP",
+        "RG":"RG",
+        "CPF":"CPF"
+    }
+}
