@@ -5,6 +5,9 @@ import { ListComponent } from './components/list/list.component';
 import { FuseCardModule } from '@fuse/components/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     imports: [
@@ -13,15 +16,20 @@ import { RouterModule } from '@angular/router';
         ReactiveFormsModule,
         FuseCardModule,
         MatIconModule,
-        RouterModule
+        RouterModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
     exports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ListComponent,
+        SearchBarComponent
     ],
     declarations: [
-      ListComponent
+      ListComponent,
+      SearchBarComponent
     ]
 })
 export class SharedModule

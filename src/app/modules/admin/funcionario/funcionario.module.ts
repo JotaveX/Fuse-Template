@@ -10,6 +10,7 @@ import { DetailFuncionarioComponent } from './detail-funcionario/detail-funciona
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { FuseCardModule } from '@fuse/components/card';
+import { SharedModule } from "../../../shared/shared.module";
 
 
 const funcionarioRoute: Route[] = [
@@ -30,20 +31,21 @@ const funcionarioRoute: Route[] = [
 
 
 @NgModule({
-  declarations: [
-    FuncionarioComponent,
-    DetailFuncionarioComponent
-  ],
-  imports: [
-    RouterModule.forChild(funcionarioRoute),
-    FormsModule,
-    MatButtonModule,
-    CommonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    FuseCardModule
-  ]
+    declarations: [
+        FuncionarioComponent,
+        DetailFuncionarioComponent
+    ],
+    imports: [
+        RouterModule.forChild(funcionarioRoute),
+        FormsModule,
+        MatButtonModule,
+        CommonModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        FuseCardModule,
+        SharedModule
+    ]
 })
 export class FuncionarioModule { }

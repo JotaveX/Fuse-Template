@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ListFormularioComponent {
     
   formularios: Formulario[];
+  columns = ['codigo', 'data', 'cpf', 'estadoCivil', 'rg', 'email', 'cep', 'pontos'];
 
   ngOnInit() {
     this.getformularios();
