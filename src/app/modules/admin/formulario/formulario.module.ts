@@ -14,6 +14,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { TranslocoModule, translocoConfig } from '@ngneat/transloco';
+import { SharedModule } from "../../../shared/shared.module";
 
 
 export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
@@ -36,26 +37,27 @@ const formRoute: Route[] = [
 
 
 @NgModule({
-  declarations: [
-    FormFormularioComponent,
-    ListFormularioComponent
-  ],
-  imports: [
-    FormsModule,
-    MatButtonModule,
-    CommonModule,
-    MatNativeDateModule,
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatIconModule,
-    MatFormFieldModule,
-    NgxMaskModule.forRoot(),
-    MatInputModule,
-    MatSelectModule,
-    FuseCardModule,
-    RouterModule.forChild(formRoute),
-    CommonModule,
-    TranslocoModule
-  ]
+    declarations: [
+        FormFormularioComponent,
+        ListFormularioComponent
+    ],
+    imports: [
+        FormsModule,
+        MatButtonModule,
+        CommonModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatIconModule,
+        MatFormFieldModule,
+        NgxMaskModule.forRoot(),
+        MatInputModule,
+        MatSelectModule,
+        FuseCardModule,
+        RouterModule.forChild(formRoute),
+        CommonModule,
+        TranslocoModule,
+        SharedModule
+    ]
 })
 export class FormularioModule { }

@@ -3,13 +3,6 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
-        type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
-    },
-    {
         id   : 'Funcionario',
         title: 'Funcionario',
         type : 'basic',
@@ -26,28 +19,49 @@ export const defaultNavigation: FuseNavigationItem[] = [
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'Funcionario',
+        title: 'Funcionario',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
-    }
+        link : '/funcionario'
+    },
+    {
+        id   : 'formulario',
+        title: 'Formulario',
+        type : 'basic', 
+        icon : 'heroicons_outline:document-report',
+        link : '/formulario'
+    },
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'Funcionario',
+        title: 'Funcionario',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
-    }
+        link : '/funcionario'
+    },
+    {
+        id   : 'formulario',
+        title: 'Formulario',
+        type : 'basic', 
+        icon : 'heroicons_outline:document-report',
+        link : '/formulario'
+    },
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'Funcionario',
+        title: 'Funcionario',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
-    }
+        link : '/funcionario'
+    },
+    {
+        id   : 'formulario',
+        title: 'Formulario',
+        type : 'basic', 
+        icon : 'heroicons_outline:document-report',
+        link : '/formulario'
+    },
 ];

@@ -45,7 +45,7 @@ export class DetailFuncionarioComponent implements OnInit {
       
     return id;
   }
-
+//TODO: Ativo esta dando NULL quando é false
   submit(): void {
     console.log(this.funcionario);
     if(this.edit){

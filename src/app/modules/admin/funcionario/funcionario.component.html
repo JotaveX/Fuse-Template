@@ -2,29 +2,14 @@
 
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
-        <!-- Search Bar -->
+        <!-- Search Bar 
         <mat-form-field class="w-full mb-2">
             <input matInput placeholder="Search..." (keyup)="searchByName($event.target.value)">
-        </mat-form-field>
+        </mat-form-field> -->
+        <app-search-bar (search)="searchByName($event)"></app-search-bar>
 
-        <!-- Card -->
-         <fuse-card class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow ng-untouched ng-pristine ng-valid overflow-visible hover:shadow-lg"
-         *ngFor="let funcionario of funcionarios" 
-         routerLink="edit/{{funcionario.id}}">
+        <app-list [list]="funcionarios" [id]="columns"></app-list>
 
-           <!-- Imagem -->
-           <!-- <img src="\assets\images\avatars\male-02.jpg" class="w-full h-full object-cover mb-5 mt-2"> -->
-
-           <!-- Conteudo -->
-       <div class="flex flex-col flex-auto order-2 md:order-1 mb-2 ml-4">
-
-           <!-- Titulo -->
-           <div class="text-2xl font-semibold flex">
-               <mat-icon svgIcon="heroicons_solid:user"></mat-icon>
-               <div class="whitespace-nowrap ml-3">{{funcionario.nome}}</div>
-           </div>
-   </div>
-      </fuse-card>
 
 
        <!-- Add button -->

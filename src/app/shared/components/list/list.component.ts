@@ -8,8 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ListComponent {
 
   @Input() list: any[] = [];
-  @Input() id: string = "";
-
+  @Input() id: string[] = [];
 
 
 }

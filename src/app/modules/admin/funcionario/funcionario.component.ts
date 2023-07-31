@@ -12,6 +12,7 @@ export class FuncionarioComponent {
   constructor(private funcionarioService: FuncionarioService) { }
 
   funcionarios: Funcionario[];
+  columns = ['codigo', 'nome', 'ativo'];
 
   ngOnInit() {
     this.getFuncionarios();
@@ -33,6 +34,7 @@ export class FuncionarioComponent {
   }
 
   searchByName(nome: string) {
+    console.log(nome);
     this.funcionarioService.getAll(nome)
       .subscribe((data: Funcionario[]) => {
         console.log(data);
