@@ -1,11 +1,103 @@
-<div class="flex flex-col flex-auto min-w-0">
+<ng-container *transloco="let t; read: 'forms'">
+    <div class="flex flex-col flex-auto min-w-0 ">
+    
+        <!-- Main -->
+        <div class="flex-auto p-6 sm:p-10">
 
-    <!-- Main -->
-    <div class="flex-auto p-6 sm:p-10">
+            <mat-stepper linear #stepper class="justify-center w-1/2" [selectedIndex]="0" >
+                <mat-step label="Dados pessoas" [contentEditable]="true" class="mat-horizontal-stepper mat-vertical-stepper">
 
-        <!-- CONTENT GOES HERE -->
-        <div class="h-400 min-h-400 max-h-400 border-2 border-dashed border-gray-300 rounded-2xl"></div>
+                    <div class="flex flex-col">
+                        <!-- Codigo -->
+                    <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                        <mat-label>{{ t('Codigo')}}</mat-label>
+                        <input matInput placeholder="Codigo" mask="0*" required>
+                        <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                    </mat-form-field>
+        
+                    <!-- data -->
+                    <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                        <mat-label>{{ t('Data')}}</mat-label>
+                        <input matInput [matDatepicker]="picker"  readonly>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field> 
+                </div>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            
+            <mat-step label="Dados pessoais" [contentEditable]="true">
+                <div class="flex flex-col">
 
+                        <!-- cpf -->
+                        <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                            <mat-label>{{ t('CPF')}}</mat-label>
+                            <input matInput placeholder="CPF" required mask="000.000.000-00" >
+                            <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                        </mat-form-field>
+
+                <!-- Estado Civil -->
+                <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                    <mat-label>{{ t('EstadoCivil')}}</mat-label>
+                    <mat-select  searchable="true">
+                        <mat-option value="Solteiro">Solteiro</mat-option>
+                        <mat-option value="Casado">Casado</mat-option>
+                        <mat-option value="Separado">Separado</mat-option>
+                        <mat-option value="Divorciado">Divorciado</mat-option>
+                        <mat-option value="Viuvo">Viuvo</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                     
+                 <!-- RG -->
+                 <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                    <mat-label>{{ t('RG')}}</mat-label>
+                    <input matInput placeholder="RG" mask="00.000.000-A" required >
+                    <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                </mat-form-field>
+    
+                <!-- Email -->
+                <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" type="email" required  >
+                    <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="float-right">
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+            </mat-step> 
+
+            <mat-step label="Endereço" [contentEditable]="true">
+                <div class="flex flex-col">
+                    <!-- CEP -->
+                    <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                        <mat-label>{{ t('CEP')}}</mat-label>
+                        <input matInput placeholder="CEP" required mask="00.000-000">
+                        <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                    </mat-form-field>
+        
+                    <!-- Bairro -->
+                    <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense">
+                        <mat-label>Bairro</mat-label>
+                        <input matInput placeholder="Bairro"  required>
+                    </mat-form-field>
+
+                    <!-- Rua -->
+                    <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0  use-mat-bold fuse-mat-dense ">
+                        <mat-label>Rua</mat-label>
+                        <input matInput placeholder="Rua"  required>
+                    </mat-form-field>  
+                </div>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button>Done</button>
+                </div>
+            </mat-step>
+        </mat-stepper>
+            
     </div>
-
 </div>
+</ng-container>

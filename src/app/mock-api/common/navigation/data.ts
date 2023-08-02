@@ -16,6 +16,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon : 'heroicons_outline:document-report',
         link : '/formulario'
     },
+    {
+        id   : 'stepper',
+        title: 'Stepper',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/example'
+    }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {

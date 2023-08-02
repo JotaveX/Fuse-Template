@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FuncionarioService } from './shared/funcionario.service';
 import { Funcionario } from './shared/funcionario.model';
+import { debounceTime } from 'rxjs/operators';
+import {  Subject } from 'rxjs';
 
 @Component({
   selector: 'app-funcionario',
@@ -9,10 +11,15 @@ import { Funcionario } from './shared/funcionario.model';
 })
 export class FuncionarioComponent {
 
-  constructor(private funcionarioService: FuncionarioService) { }
+  private debounceSubject = new Subject<string>();
+
+  constructor(private funcionarioService: FuncionarioService) { 
+    this.debounceSubject.pipe(debounceTime(500)).subscribe((valorDoInput) => {
+      this.searchByName(valorDoInput);
+    });
+  }
 
   funcionarios: Funcionario[];
-  columns = ['codigo', 'nome', 'ativo'];
 
   ngOnInit() {
     this.getFuncionarios();
@@ -31,6 +38,14 @@ export class FuncionarioComponent {
 
   detailFuncionario(id: number) {
       window.location.href = '/funcionario/edit/' + id;
+  }
+
+  search(value: any) {
+    if(value == '') {
+      this.getFuncionarios();
+    }else{
+      this.debounceSubject.next(value);
+    }
   }
 
   searchByName(nome: string) {

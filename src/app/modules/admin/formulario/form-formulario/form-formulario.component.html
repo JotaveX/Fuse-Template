@@ -10,14 +10,14 @@
             <div class="flex flex-col md:flex-row md:items-center">
                 
                 <!-- Codigo -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>{{ t('Codigo')}}</mat-label>
                 <input matInput placeholder="Codigo" mask="0*" required [(ngModel)]="formulario.codigo">
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
             <!-- data -->
-             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>{{ t('Data')}}</mat-label>
                 <input matInput [matDatepicker]="picker"  [(ngModel)]="formulario.data" readonly>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -25,14 +25,14 @@
             </mat-form-field> 
             
             <!-- cpf -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>{{ t('CPF')}}</mat-label>
                 <input matInput placeholder="CPF" required mask="000.000.000-00" [(ngModel)]="formulario.cpf">
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
             <!-- Estado Civil -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>{{ t('EstadoCivil')}}</mat-label>
                 <mat-select [(ngModel)]="formulario.estadoCivil" searchable="true">
                     <mat-option value="Solteiro">Solteiro</mat-option>
@@ -45,31 +45,32 @@
 
         </div>
 
+
         <div class="flex flex-col md:flex-row md:items-center">
              
              <!-- RG -->
-             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>{{ t('RG')}}</mat-label>
                 <input matInput placeholder="RG" mask="00.000.000-A" required [(ngModel)]="formulario.rg">
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
             <!-- Email -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>Email</mat-label>
                 <input matInput placeholder="Email" type="email" required  [(ngModel)]="formulario.email">
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
             <!-- CEP -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>{{ t('CEP')}}</mat-label>
                 <input matInput placeholder="CEP" required mask="00.000-000" [(ngModel)]="formulario.cep">
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
             <!-- Celular -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>{{ t('Celular')}}</mat-label>
                 <input matInput placeholder="Name" mask="(00) 00000 0000 || (00) 0000 0000"  required [(ngModel)]="formulario.pontos">
                 <mat-icon matPrefix svgIcon="heroicons_solid:phone"></mat-icon>
@@ -80,7 +81,7 @@
         <div class="flex flex-col md:flex-row md:items-center">
 
              <!-- Administrador -->
-             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>{{ t('Administrador')}}</mat-label>
                 <mat-select [(ngModel)]="formulario.administrador" searchable="true" (selectionChange)="changeAdministrador($event)">
                     <mat-option *ngFor="let funcionario of funcionarios" [value]="funcionario.id">{{ funcionario.nome }}</mat-option>
@@ -88,7 +89,7 @@
             </mat-form-field>
 
             <!-- Funcionario -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/2 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix w-full">
+            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix w-full">
                 <mat-label>{{ t('Funcionario')}}</mat-label>
                 <mat-select [(ngModel)]="formulario.funcionarios" multiple>
                     <mat-option *ngFor="let funcionario of funcionarios" [value]="funcionario.id">{{ funcionario.nome }}</mat-option>
@@ -96,6 +97,7 @@
             </mat-form-field>
 
         </div>
+        
 
             <div mat-button class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
                 <button *ngIf="edit" (click)="delete()" mat-flat-button class="px-6 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-warn mat-mdc-button-base">{{ t('Excluir')}}</button>
