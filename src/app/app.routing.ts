@@ -84,18 +84,6 @@ export const appRoutes: Route[] = [
             initialData: InitialDataResolver,
         },
         children: [
-            {path: 'pizza', loadChildren: () => import('app/modules/admin/pizza/pizza.module').then(m => m.PizzaModule)},
-        ]
-    },
-
-    {
-        path: '',
-        canMatch: [AuthGuard],
-        component: LayoutComponent,
-        resolve: {
-            initialData: InitialDataResolver,
-        },
-        children: [
             {path: 'funcionario', loadChildren: () => import('app/modules/admin/funcionario/funcionario.module').then(m => m.FuncionarioModule)},
         ]
     }
