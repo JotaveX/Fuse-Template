@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { FuseCardModule } from '@fuse/components/card';
 import { SharedModule } from "../../../shared/shared.module";
+import { FormComponent } from 'app/shared/component/form/form.component';
 
 
 const funcionarioRoute: Route[] = [
@@ -25,6 +26,10 @@ const funcionarioRoute: Route[] = [
     {
       path   : 'new',
       component: DetailFuncionarioComponent
+    },
+    {
+        path     : 'genericForm',
+        component: FormComponent
     }
 
 ];

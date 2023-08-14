@@ -12,20 +12,54 @@
             <input matInput placeholder="Search..." mask="0*" (keyup)="searchByName($event.target.value)">
         </mat-form-field>
 
-        <fuse-card class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow ng-untouched ng-pristine ng-valid overflow-visible hover:shadow-lg"
-        *ngFor="let formulario of formularios" 
-        routerLink="edit/{{formulario.id}}">
+        <div class="flex-wrap">
+            <fuse-card class="mt-8 p-8 pb-4 rounded-2xl shadow hover:shadow-lg w-full inline-block mr-5"
+            *ngFor="let formulario of formularios"
+            (dblclick)="edit(formulario.id)">
 
-        <!-- Conteudo -->
-    <div class="flex flex-col flex-auto order-2 md:order-1 mb-2 ml-4">
+                <!-- Conteudo -->
+                <div class="flex-wrap sm:itens-center">
+                    
+  
+                    <!-- Menu com outras opções -->
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item routerLink="edit/{{formulario.id}}">
+                        <mat-icon>info</mat-icon>
+                        Detalhes
+                        </button>
+                
+                        <!--TODO: Delete in list-->
+                        <button mat-menu-item (click)="delete(formulario.id)">
+                        <mat-icon>delete</mat-icon>
+                        Excluir
+                        </button>
+                    </mat-menu>
+                    <div class="flex flex-col sm:flex-row flex-wrap itens-center">
 
-        <!-- Titulo -->
-        <div class="text-2xl flex">
-            <mat-icon svgIcon="heroicons_solid:user"></mat-icon>
-             <div class="whitespace-nowrap ml-3">{{formulario.codigo}}</div> 
-        </div>
+                            <!-- Botão com três pontinhos -->
+                        <button mat-icon-button [matMenuTriggerFor]="menu" class="h-full flex flex-col sm:hidden">
+                            <mat-icon>more_vert</mat-icon>
+                            <!--<figure class="relative overflow-hidden"><img src="https://img.icons8.com/ios/50/000000/contract-job.png" class="object-cover rounded-2xl"/></figure>-->
+                        </button>
+
+                        <div class="text-2xl sm:ml-3 mb-2 sm:mb-0 sm:mr-auto">
+                            <div class="whitespace-nowrap"><strong>Administrador: </strong>{{formulario.administrador.nome}}</div> 
+                            <div><strong>Estado civil: </strong>{{formulario.estadoCivil}}</div>
+                        </div>
+
+                        <mat-divider></mat-divider>
+
+                        <div class="text-2xl sm:ml-auto sm:mr-3">
+                            <div class="whitespace-nowrap"><strong>Codigo: </strong>{{formulario.codigo}}</div> 
+                            <div class=""><strong>Data: </strong>{{formulario.data | date:"dd/MM/yyyy"}}</div>
+                        </div>
+
+                    </div>
+                    
+               </div>
+
+        </fuse-card>
     </div>
-</fuse-card>
 
           <!-- Add button -->
           <div class="fixed bottom-0 right-15 mb-10 mr-10 z-99">

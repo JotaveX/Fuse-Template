@@ -15,6 +15,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { TranslocoModule, translocoConfig } from '@ngneat/transloco';
 import { SharedModule } from "../../../shared/shared.module";
+import { MatMenuModule } from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 
 export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
@@ -47,6 +50,7 @@ const formRoute: Route[] = [
         CommonModule,
         MatNativeDateModule,
         ReactiveFormsModule,
+        MatDividerModule,
         MatDatepickerModule,
         MatIconModule,
         MatFormFieldModule,
@@ -57,6 +61,7 @@ const formRoute: Route[] = [
         RouterModule.forChild(formRoute),
         CommonModule,
         TranslocoModule,
+        MatMenuModule,
         SharedModule
     ]
 })
