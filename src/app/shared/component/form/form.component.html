@@ -1,0 +1,24 @@
+<!-- generic-form.component.html -->
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <fuse-card class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow overflow-hidden ng-untouched ng-pristine ng-valid ">
+
+            <form [formGroup]="form">
+
+                <div class="flex flex-col md:flex-row md:items-center">
+
+                    <mat-form-field *ngFor="let field of formConfig.data | keyvalue" class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                    
+                    <mat-label>{{ field.key }}</mat-label>
+                    <input matInput [formControlName]="field.key" [placeholder]="field.key" [type]="getFieldType(field.value)">
+
+                    </mat-form-field> 
+                
+                </div>
+              </form>
+        </fuse-card>
+    </div>
+</div>

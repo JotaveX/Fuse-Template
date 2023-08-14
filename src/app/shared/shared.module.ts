@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatStepperModule} from '@angular/material/stepper';
+import { FormComponent } from './component/form/form.component';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import {MatStepperModule} from '@angular/material/stepper';
         RouterModule,
         MatFormFieldModule,
         MatInputModule,
+        MatInputModule,
         MatStepperModule
     ],
     exports: [
@@ -27,7 +29,9 @@ import {MatStepperModule} from '@angular/material/stepper';
         MatStepperModule
     ],
     declarations: [
-    ]
+    
+    FormComponent
+  ]
 })
 export class SharedModule
 {
