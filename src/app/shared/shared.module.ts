@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatStepperModule} from '@angular/material/stepper';
 import { FormComponent } from './component/form/form.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
     imports: [
@@ -19,7 +20,7 @@ import { FormComponent } from './component/form/form.component';
         RouterModule,
         MatFormFieldModule,
         MatInputModule,
-        MatInputModule,
+        MatButtonModule,
         MatStepperModule
     ],
     exports: [

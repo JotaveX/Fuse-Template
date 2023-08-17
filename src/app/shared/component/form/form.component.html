@@ -1,4 +1,3 @@
-<!-- generic-form.component.html -->
 <div class="flex flex-col flex-auto min-w-0">
 
     <!-- Main -->
@@ -8,9 +7,9 @@
 
             <form [formGroup]="form">
 
-                <div class="flex flex-col md:flex-row md:items-center">
+                <div class="grid columns-1 xl:grid-cols-3 md:grid-cols-2">
 
-                    <mat-form-field *ngFor="let field of formConfig.data | keyvalue" class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                    <mat-form-field *ngFor="let field of formConfig.data | keyvalue" class="mr-5 mb-4" appearance="outline">
                     
                     <mat-label>{{ field.key }}</mat-label>
                     <input matInput [formControlName]="field.key" [placeholder]="field.key" [type]="getFieldType(field.value)">
@@ -20,5 +19,21 @@
                 </div>
               </form>
         </fuse-card>
+
+        <div class="flex flex-row-reverse space-x-4 space-x-reverse bottom-10 right-10 fixed z-99 xl:right-20">
+
+            <div class="">
+                <a mat-fab matTooltip="Add" >
+                    <mat-icon svgIcon="mat_outline:save"></mat-icon>
+                </a>
+             </div>
+    
+             <div class="">
+                <a mat-fab matTooltip="back" color="warn">
+                    <mat-icon svgIcon="mat_outline:arrow_back"></mat-icon>
+                </a>
+             </div>
+
+        </div>
     </div>
 </div>
