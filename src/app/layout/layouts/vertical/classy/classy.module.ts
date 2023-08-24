@@ -17,6 +17,8 @@ import { ShortcutsModule } from 'app/layout/common/shortcuts/shortcuts.module';
 import { UserModule } from 'app/layout/common/user/user.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { ClassyLayoutComponent } from 'app/layout/layouts/vertical/classy/classy.component';
+import { ThreeDotModule } from 'app/layout/common/three-dot/three-dot.module';
+import { ThreeDotComponent } from 'app/layout/common/three-dot/three-dot.component';
 
 @NgModule({
     declarations: [
@@ -34,6 +36,7 @@ import { ClassyLayoutComponent } from 'app/layout/layouts/vertical/classy/classy
         FuseNavigationModule,
         LanguagesModule,
         MessagesModule,
+        ThreeDotModule,
         NotificationsModule,
         QuickChatModule,
         SearchModule,
