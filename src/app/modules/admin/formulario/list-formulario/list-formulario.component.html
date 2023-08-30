@@ -12,6 +12,8 @@
             <input matInput placeholder="Search..." mask="0*" (keyup)="searchByName($event.target.value)">
         </mat-form-field>
 
+        <!-- TODO: Botão tres pontinhos ou foto da classe -->
+        <!-- TODO: Menu com editar, compartilhar, deletar e marcar -->
         <!-- List -->
         <div class="flex-wrap" *ngIf="listState == 'list'">
             <fuse-card class="mt-8 p-8 pb-4 rounded-2xl shadow hover:shadow-lg w-full inline-block mr-5"
@@ -131,6 +133,8 @@
                 
                 </fuse-card>
             </div>
+
+            <!-- TODO: Grid list -->
 
 
           <!-- Add button -->

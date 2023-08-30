@@ -9,6 +9,12 @@ import { MatInputModule } from '@angular/material/input';
 import {MatStepperModule} from '@angular/material/stepper';
 import { FormComponent } from './component/form/form.component';
 import { MatButtonModule } from '@angular/material/button';
+import { DialogListComponent } from './component/dialog-list/dialog-list.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+
+
 
 @NgModule({
     imports: [
@@ -21,7 +27,10 @@ import { MatButtonModule } from '@angular/material/button';
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        MatStepperModule
+        MatStepperModule,
+        MatCheckboxModule,
+        MatListModule,
+        MatRadioModule
     ],
     exports: [
         CommonModule,
@@ -31,7 +40,8 @@ import { MatButtonModule } from '@angular/material/button';
     ],
     declarations: [
     
-    FormComponent
+    FormComponent,
+          DialogListComponent
   ]
 })
 export class SharedModule

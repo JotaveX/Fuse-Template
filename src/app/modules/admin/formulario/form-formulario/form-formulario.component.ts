@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Funcionario } from '../../funcionario/shared/funcionario.model';
 import { FuncionarioService } from '../../funcionario/shared/funcionario.service';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogListComponent } from 'app/shared/component/dialog-list/dialog-list.component';
 
 @Component({
   selector: 'app-form-formulario',
@@ -17,34 +19,11 @@ export class FormFormularioComponent {
   funcionarios: Funcionario[] = [];
   edit: boolean = false;
   display: FormControl = new FormControl("", Validators.required);
-  file_store: FileList;
-  file_list: Array<string> = [];
-
-  handleFileInputChange(l: FileList): void {
-    this.file_store = l;
-    if (l.length) {
-      const f = l[0];
-      const count = l.length > 1 ? `(+${l.length - 1} files)` : "";
-      this.display.patchValue(`${f.name}${count}`);
-    } else {
-      this.display.patchValue("");
-    }
-  }
-
-  handleSubmit(): void {
-    var fd = new FormData();
-    this.file_list = [];
-    for (let i = 0; i < this.file_store.length; i++) {
-      fd.append("files", this.file_store[i], this.file_store[i].name);
-      this.file_list.push(this.file_store[i].name);
-    }
-
-    // do submit ajax
-  }
 
   constructor(private formularioService: FormularioService,
               private funcionarioService: FuncionarioService,
-              private router: Router) { }
+              private router: Router,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.verifyAction();
@@ -124,6 +103,39 @@ export class FormFormularioComponent {
           console.log(data);
         }
       );
+  }
+
+  openDialog() {
+    this.dialog.open(DialogListComponent, {
+      width: '500px',
+      height: '500px',
+      data: {
+        apiUrl: 'http://localhost:8080/api/funcionarios',
+        type: 'radio'
+      }
+    }).afterClosed().subscribe(result => {
+      if(result){
+        this.formulario.administrador = result.id;
+      }
+    }
+    );
+  }
+
+  openDialogFuncionario(){
+    this.dialog.open(DialogListComponent, {
+      width: '500px',
+      height: '500px',
+      data: {
+        apiUrl: 'http://localhost:8080/api/funcionarios',
+        type: 'checkBox'
+      }
+    }).afterClosed().subscribe(result => {
+      if(result){
+        this.formulario.funcionarios = result.map((funcionario: Funcionario) => funcionario.id);
+        console.log(this.formulario.funcionarios);
+      }
+    }
+    );
   }
 
 }

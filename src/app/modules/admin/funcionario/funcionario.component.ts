@@ -3,6 +3,8 @@ import { FuncionarioService } from './shared/funcionario.service';
 import { Funcionario } from './shared/funcionario.model';
 import { debounceTime } from 'rxjs/operators';
 import {  Subject } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogListComponent } from 'app/shared/component/dialog-list/dialog-list.component';
 
 @Component({
   selector: 'app-funcionario',
