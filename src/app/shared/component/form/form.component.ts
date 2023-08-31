@@ -19,7 +19,14 @@ export class FormComponent<T> implements OnInit {
         email: '',
         password: '',
         age: 0,
-        passwordConfirmation: ''
+        passwordConfirmation: '',
+        telefone: '',
+        cpf: '',
+        cep: '',
+        bairro: '',
+        cidade: '',
+        estado: '',
+        rua: '',
     }
   };
 

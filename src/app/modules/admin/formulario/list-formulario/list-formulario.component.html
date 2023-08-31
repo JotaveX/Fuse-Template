@@ -12,12 +12,15 @@
             <input matInput placeholder="Search..." mask="0*" (keyup)="searchByName($event.target.value)">
         </mat-form-field>
 
-        <div class="flex-wrap">
+        <!-- TODO: Botão tres pontinhos ou foto da classe -->
+        <!-- TODO: Menu com editar, compartilhar, deletar e marcar -->
+        <!-- List -->
+        <div class="flex-wrap" *ngIf="listState == 'list'">
             <fuse-card class="mt-8 p-8 pb-4 rounded-2xl shadow hover:shadow-lg w-full inline-block mr-5"
             *ngFor="let formulario of formularios"
             (dblclick)="edit(formulario.id)">
 
-                <!-- Conteudo -->
+                <!-- Conteudo --> 
                 <div class="flex-wrap sm:itens-center">
                     
   
@@ -60,6 +63,79 @@
 
         </fuse-card>
     </div>
+
+    <!-- Card -->
+    <div class="flex" *ngIf="listState == 'card'">
+        <fuse-card class="mt-8 p-8 pb-4 rounded-2xl shadow hover:shadow-lg w-full inline-block mr-5"
+        *ngFor="let formulario of formularios"
+        (dblclick)="edit(formulario.id)">
+
+            <!-- Conteudo --> 
+            <div class="flex-wrap sm:itens-center">
+                
+
+                <!-- Menu com outras opções -->
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item routerLink="edit/{{formulario.id}}">
+                    <mat-icon>info</mat-icon>
+                    Detalhes
+                    </button>
+                </mat-menu>
+
+                <div class="text-2xl sm:ml-3 mb-2 sm:mb-0 sm:mr-auto">
+                    <div class="whitespace-nowrap"><strong>Administrador: </strong>{{formulario.administrador.nome}}</div> 
+                    <div><strong>Estado civil: </strong>{{formulario.estadoCivil}}</div>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <div class="text-2xl sm:ml-auto sm:mr-3">
+                    <div class="whitespace-nowrap"><strong>Codigo: </strong>{{formulario.codigo}}</div> 
+                    <div class=""><strong>Data: </strong>{{formulario.data | date:"dd/MM/yyyy"}}</div>
+                </div>
+
+            </div>
+            
+            </fuse-card>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid" *ngIf="listState == 'grid'">
+            <fuse-card class="mt-8 p-8 pb-4 rounded-2xl shadow hover:shadow-lg w-full inline-block mr-5"
+            *ngFor="let formulario of formularios"
+            (dblclick)="edit(formulario.id)">
+    
+                <!-- Conteudo --> 
+                <div class="flex-wrap sm:itens-center">
+                    
+    
+                    <!-- Menu com outras opções -->
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item routerLink="edit/{{formulario.id}}">
+                        <mat-icon>info</mat-icon>
+                        Detalhes
+                        </button>
+                    </mat-menu>
+    
+                    <div class="text-2xl sm:ml-3 mb-2 sm:mb-0 sm:mr-auto">
+                        <div class="whitespace-nowrap"><strong>Administrador: </strong>{{formulario.administrador.nome}}</div> 
+                        <div><strong>Estado civil: </strong>{{formulario.estadoCivil}}</div>
+                    </div>
+    
+                    <mat-divider></mat-divider>
+    
+                    <div class="text-2xl sm:ml-auto sm:mr-3">
+                        <div class="whitespace-nowrap"><strong>Codigo: </strong>{{formulario.codigo}}</div> 
+                        <div class=""><strong>Data: </strong>{{formulario.data | date:"dd/MM/yyyy"}}</div>
+                    </div>
+    
+                </div>
+                
+                </fuse-card>
+            </div>
+
+            <!-- TODO: Grid list -->
+
 
           <!-- Add button -->
           <div class="fixed bottom-0 right-15 mb-10 mr-10 z-99">

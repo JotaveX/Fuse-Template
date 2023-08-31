@@ -16,6 +16,7 @@ import { UserService } from 'app/core/user/user.service';
 export class ClassyLayoutComponent implements OnInit, OnDestroy
 {
     isScreenSmall: boolean;
+    listState: string = 'list';
     navigation: Navigation;
     user: User;
     private _unsubscribeAll: Subject<any> = new Subject<any>();

@@ -1,0 +1,32 @@
+<!-- Search bar -->
+<mat-form-field class="w-full" appearance="outline">
+  <mat-label>Search</mat-label>
+  <input matInput type="text" (keyup)="search($event.target.value)" />
+  <button mat-icon-button matSuffix>
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field>
+
+<div class="item-selector" *ngIf="data.type == 'checkBox'">
+  <mat-list>
+    <mat-list-item *ngFor="let item of list">
+      <label>
+        <mat-checkbox [(ngModel)]="item.selected"> {{ item.nome }}</mat-checkbox>
+      </label>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<div class="item-selector" *ngIf="data.type == 'radio'">
+      <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      [(ngModel)]="selectedItems">
+          <mat-radio-button [value]="item" *ngFor="let item of list"> {{ item.nome }}</mat-radio-button>
+      </mat-radio-group>
+</div>
+    
+  <div class="bottom-0 right-15 mb-10 mr-10 z-99">
+    <a mat-fab matTooltip="Add" routerLink="new" (click)="enviarSelecoes()">
+      <mat-icon svgIcon="mat_outline:save"></mat-icon>
+    </a>
+</div>

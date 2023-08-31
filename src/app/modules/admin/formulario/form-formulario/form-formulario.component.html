@@ -7,98 +7,94 @@
             <p class="text-lg font-medium">{{ t('Formulario')}}</p>
             <p class="text-sm text-gray-600 mt-2">{{ t('SubTitulo')}}</p>
             <br>            
-            <div class="flex flex-col md:flex-row md:items-center">
-                
-                <!-- Codigo -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
-                <mat-label>{{ t('Codigo')}}</mat-label>
-                <input matInput placeholder="Codigo" mask="0*" required [(ngModel)]="formulario.codigo">
-                <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
-            </mat-form-field>
+            <div class="grid sm:grid-cols-2 xl:grid-cols-4 xl:gap-4 md:gap-1 lg:grid-cols-4 2xl:grid-cols-5">
 
-            <!-- data -->
-             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
-                <mat-label>{{ t('Data')}}</mat-label>
-                <input matInput [matDatepicker]="picker"  [(ngModel)]="formulario.data" readonly>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field> 
-            
-            <!-- cpf -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
-                <mat-label>{{ t('CPF')}}</mat-label>
-                <input matInput placeholder="CPF" required mask="000.000.000-00" [(ngModel)]="formulario.cpf">
-                <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
-            </mat-form-field>
+                    <!-- Codigo -->
+                <mat-form-field class="w-full mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
+                    <mat-label>{{ t('Codigo')}}</mat-label>
+                    <input matInput placeholder="Codigo" mask="0*" required [(ngModel)]="formulario.codigo">
+                    <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                </mat-form-field>
 
-            <!-- Estado Civil -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
-                <mat-label>{{ t('EstadoCivil')}}</mat-label>
-                <mat-select [(ngModel)]="formulario.estadoCivil" searchable="true">
-                    <mat-option value="Solteiro">Solteiro</mat-option>
-                    <mat-option value="Casado">Casado</mat-option>
-                    <mat-option value="Separado">Separado</mat-option>
-                    <mat-option value="Divorciado">Divorciado</mat-option>
-                    <mat-option value="Viuvo">Viuvo</mat-option>
-                </mat-select>
-            </mat-form-field>
-
-        </div>
+                <!-- data -->
+                <mat-form-field class="w-full  mb-4  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
+                    <mat-label>{{ t('Data')}}</mat-label>
+                    <input matInput [matDatepicker]="picker"  [(ngModel)]="formulario.data" readonly>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> 
 
 
-        <div class="flex flex-col md:flex-row md:items-center">
+                <!-- cpf -->
+                <mat-form-field class="w-full mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
+                    <mat-label>{{ t('CPF')}}</mat-label>
+                    <input matInput placeholder="CPF" required mask="000.000.000-00" [(ngModel)]="formulario.cpf">
+                    <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                </mat-form-field>
+
+                <!-- Estado Civil -->
+                <mat-form-field class="w-full mr-5 mb-4 mt-5 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                    <mat-select [(ngModel)]="formulario.estadoCivil" searchable="true" placeholder="{{ t('EstadoCivil')}}" required>
+                        <mat-option value="Solteiro">Solteiro</mat-option>
+                        <mat-option value="Casado">Casado</mat-option>
+                        <mat-option value="Separado">Separado</mat-option>
+                        <mat-option value="Divorciado">Divorciado</mat-option>
+                        <mat-option value="Viuvo">Viuvo</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
              
              <!-- RG -->
-             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+             <mat-form-field class="mb-5 mt-5 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
                 <mat-label>{{ t('RG')}}</mat-label>
                 <input matInput placeholder="RG" mask="00.000.000-A" required [(ngModel)]="formulario.rg">
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
             <!-- Email -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class=" use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput placeholder="Email" type="email" required  [(ngModel)]="formulario.email">
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
             <!-- CEP -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class=" use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
                 <mat-label>{{ t('CEP')}}</mat-label>
                 <input matInput placeholder="CEP" required mask="00.000-000" [(ngModel)]="formulario.cep">
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
             <!-- Celular -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <mat-form-field class="mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
                 <mat-label>{{ t('Celular')}}</mat-label>
                 <input matInput placeholder="Name" mask="(00) 00000 0000 || (00) 0000 0000"  required [(ngModel)]="formulario.pontos">
                 <mat-icon matPrefix svgIcon="heroicons_solid:phone"></mat-icon>
             </mat-form-field>
 
-        </div>
 
-        <div class="flex flex-col md:flex-row md:items-center">
 
              <!-- Administrador -->
-             <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
-                <mat-label>{{ t('Administrador')}}</mat-label>
-                <mat-select [(ngModel)]="formulario.administrador" searchable="true" (selectionChange)="changeAdministrador($event)">
-                    <mat-option *ngFor="let funcionario of funcionarios" [value]="funcionario.id">{{ funcionario.nome }}</mat-option>
-                </mat-select>
-            </mat-form-field>
+             <div class="flex-1 mr-5 mb-4  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                    <button mat-button (click)="openDialog()">{{ t('Administrador')}}</button>
+                    <mat-form-field>
+                        <input matInput placeholder="Administrador" required [(ngModel)]="formulario.administrador" readonly>
+                        <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                    </mat-form-field>
+            </div>
+
 
             <!-- Funcionario -->
-            <mat-form-field class="flex-1 mr-5 mb-4 md:mb-0 md:w-1/4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix w-full">
+            <button mat-button (click)="openDialogFuncionario()">{{ t('Funcionario')}}</button>
+            <mat-form-field class="flex-1 mr-5 mb-4  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix w-full">
                 <mat-label>{{ t('Funcionario')}}</mat-label>
-                <mat-select [(ngModel)]="formulario.funcionarios" multiple>
-                    <mat-option *ngFor="let funcionario of funcionarios" [value]="funcionario.id">{{ funcionario.nome }}</mat-option>
-                </mat-select>
+                <input matInput placeholder="funcionarios" required [(ngModel)]="formulario.funcionarios" readonly view>
+                <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
         </div>
-        
 
+            <!-- TODO: Botão flutuante salvar e voltar -->
             <div mat-button class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
                 <button *ngIf="edit" (click)="delete()" mat-flat-button class="px-6 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-warn mat-mdc-button-base">{{ t('Excluir')}}</button>
                 <button mat-flat-button (click)="submit()" class="px-6 ml-3 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-primary mat-mdc-button-base">{{ t('Salvar')}}</button>
