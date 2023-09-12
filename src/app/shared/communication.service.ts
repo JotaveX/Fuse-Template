@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CommunicationService {
 
-  private listStateSubject = new BehaviorSubject<string>('list');
+  private listStateSubject = new BehaviorSubject<string>('grid');
 
   setListState(newState: string): void {
     this.listStateSubject.next(newState);
