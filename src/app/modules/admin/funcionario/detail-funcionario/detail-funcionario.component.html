@@ -21,13 +21,13 @@
                 <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="fuse-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+            <!-- <mat-form-field class="fuse-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
                 <mat-label>Ativo</mat-label>
                 <mat-select [(ngModel)]="funcionario.ativo">
                     <mat-option [value]="true">Sim</mat-option>
                     <mat-option [value]="false">Não</mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <div mat-button class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
                 <button *ngIf="edit" (click)="delete()" mat-flat-button class="px-6 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-warn mat-mdc-button-base">Excluir</button>

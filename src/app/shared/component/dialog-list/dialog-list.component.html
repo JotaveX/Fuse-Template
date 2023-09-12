@@ -1,33 +1,47 @@
-<!-- Search bar -->
-<mat-form-field class="w-full" appearance="outline">
-  <mat-label>Search</mat-label>
-  <input matInput type="text" (keyup)="search($event.target.value)" />
-  <button mat-icon-button matSuffix>
-    <mat-icon>search</mat-icon>
+<!-- Choose state -->
+<div class="flex justify-center items-center h-full" *ngIf="!listState">
+  <button (click)="stateList()" mat-fab class="px-6">
+    <mat-icon svgIcon="mat_solid:folder_open"></mat-icon>
   </button>
-</mat-form-field>
-
-<div class="item-selector" *ngIf="data.type == 'checkBox'">
-  <mat-list>
-    <mat-list-item *ngFor="let item of list">
-      <label>
-        <mat-checkbox [(ngModel)]="item.selected"> {{ item.nome }}</mat-checkbox>
-      </label>
-    </mat-list-item>
-  </mat-list>
+  <button (click)="new()" mat-fab class="px-6 ml-3">
+      <mat-icon svgIcon="mat_solid:add"></mat-icon>
+  </button>
 </div>
 
-<div class="item-selector" *ngIf="data.type == 'radio'">
-      <mat-radio-group
-      aria-labelledby="example-radio-group-label"
-      [(ngModel)]="selectedItems">
-          <mat-radio-button [value]="item" *ngFor="let item of list"> {{ item.nome }}</mat-radio-button>
-      </mat-radio-group>
-</div>
-    
-  <!-- TODO: Adicionar nova classe -->
-  <div class="bottom-0 right-15 mb-10 mr-10 z-99">
-    <a mat-fab matTooltip="Add" routerLink="new" (click)="enviarSelecoes()">
-      <mat-icon svgIcon="mat_outline:save"></mat-icon>
-    </a>
+<!-- List State -->
+<div *ngIf="listState == 'list'">
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput type="text" (keyup)="search($event.target.value)" />
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="item-selector" *ngIf="data.type == 'checkBox'">
+    <mat-list>
+      <mat-list-item *ngFor="let item of list">
+        <label>
+          <mat-checkbox [(ngModel)]="item.selected"> {{ item.nome }}</mat-checkbox>
+        </label>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="item-selector" *ngIf="data.type == 'radio'">
+        <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        [(ngModel)]="selectedItems">
+            <mat-radio-button [value]="item" *ngFor="let item of list"> {{ item.nome }}</mat-radio-button>
+        </mat-radio-group>
+  </div>
+      
+    <div class="right-0 bottom-0 absolute mb-10 mr-10 z-99">
+      <a mat-fab matTooltip="Add" routerLink="new" (click)="listState = null" class="mr-3">
+        <mat-icon svgIcon="mat_solid:keyboard_backspace"></mat-icon>
+      </a>
+      <a mat-fab matTooltip="Add" routerLink="new" (click)="enviarSelecoes()">
+        <mat-icon svgIcon="mat_outline:save"></mat-icon>
+      </a>
+  </div>
 </div>

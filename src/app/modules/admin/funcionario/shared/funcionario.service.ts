@@ -24,6 +24,7 @@ export class FuncionarioService {
   }
 
   create(data: any): Observable<any> {
+    console.log(data);  
     return this.http.post(baseUrl, data);
   }
 

@@ -91,23 +91,22 @@
             </mat-form-field>
 
         </div>
-
-            
             <!-- <div mat-button class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
                 <button *ngIf="edit" (click)="delete()" mat-flat-button class="px-6 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-warn mat-mdc-button-base">{{ t('Excluir')}}</button>
                 <button mat-flat-button (click)="submit()" class="px-6 ml-3 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-primary mat-mdc-button-base">{{ t('Salvar')}}</button>
             </div> -->
         </fuse-card>
 
-        <div class="right-15 mb-10 mr-10 z-99 flex flex-row-reverse fixed bottom-0 right-0">
-
-            <a mat-fab matTooltip="Add" routerLink="new" (click)="submit()">
-              <mat-icon svgIcon="mat_outline:save"></mat-icon>
-            </a>
-
-            <a mat-fab class="mr-5" (click)="delete()" *ngIf="edit">
-                <mat-icon svgIcon="feather:trash"></mat-icon>
-            </a>
+        <div class="flex justify-end items-center px-6 py-4 space-x-2">
+            <button mat-fab class="px-6 ml-3" routerLink="/">
+                <mat-icon svgIcon="mat_solid:keyboard_backspace"></mat-icon>
+            </button>
+            <button *ngIf="edit" (click)="delete()" mat-fab class="px-6 ml-3">
+                <mat-icon svgIcon="mat_solid:delete"></mat-icon>
+            </button>
+            <button (click)="submit()" mat-fab class="px-6 ml-3">
+                <mat-icon svgIcon="mat_solid:save"></mat-icon>
+            </button>
         </div>
 
     </div>

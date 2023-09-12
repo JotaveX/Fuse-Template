@@ -107,11 +107,10 @@ export class FormFormularioComponent {
 
   openDialog() {
     this.dialog.open(DialogListComponent, {
-      width: '500px',
-      height: '500px',
       data: {
         apiUrl: 'http://localhost:8080/api/funcionarios',
-        type: 'radio'
+        type: 'radio',
+        class: 'funcionario'
       }
     }).afterClosed().subscribe(result => {
       if(result){
@@ -121,13 +120,13 @@ export class FormFormularioComponent {
     );
   }
 
+  // TODO: finalizar testes de dimensionamento
   openDialogFuncionario(){
     this.dialog.open(DialogListComponent, {
-      width: '500px',
-      height: '500px',
       data: {
         apiUrl: 'http://localhost:8080/api/funcionarios',
-        type: 'checkBox'
+        type: 'checkBox',
+        class: 'funcionario'
       }
     }).afterClosed().subscribe(result => {
       if(result){

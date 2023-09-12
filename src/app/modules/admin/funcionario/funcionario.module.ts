@@ -28,6 +28,10 @@ const funcionarioRoute: Route[] = [
       component: DetailFuncionarioComponent
     },
     {
+        path     : 'dialog',
+        component: DetailFuncionarioComponent
+    },
+    {
         path     : 'genericForm',
         component: FormComponent
     }
