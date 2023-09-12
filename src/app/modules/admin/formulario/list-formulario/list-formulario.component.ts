@@ -16,7 +16,8 @@ export class ListFormularioComponent implements OnDestroy {
   listState: any = 'list';
   private subscription: Subscription;
   formularios: Formulario[];
-  columns = ['codigo', 'data', 'cpf', 'estadoCivil', 'rg', 'email', 'cep', 'pontos'];
+  displayedColumns: string[] = ['Opções','Select','Codigo', 'Funcionario', 'Data', 'Estado Civil'];
+
 
   ngOnInit() {
     this.getformularios();
@@ -59,6 +60,19 @@ export class ListFormularioComponent implements OnDestroy {
       , error => {
         console.log(error);
       });
+  }
+
+  masterToggle() {
+    console.log('masterToggle');
+  }
+
+  delete(id: number){
+    this.formularioService.delete(id).subscribe(
+      data => {
+        console.log(data);
+        this.getformularios();
+      },
+      error => console.log(error));
   }
 
 }

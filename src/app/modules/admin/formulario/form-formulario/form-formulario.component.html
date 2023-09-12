@@ -10,7 +10,7 @@
             <div class="grid sm:grid-cols-2 xl:grid-cols-4 xl:gap-4 md:gap-1 lg:grid-cols-4 2xl:grid-cols-5">
 
                     <!-- Codigo -->
-                <mat-form-field class="w-full mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
+                <mat-form-field class="w-full mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix justify-center" appearance="outline">
                     <mat-label>{{ t('Codigo')}}</mat-label>
                     <input matInput placeholder="Codigo" mask="0*" required [(ngModel)]="formulario.codigo">
                     <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
@@ -33,7 +33,7 @@
                 </mat-form-field>
 
                 <!-- Estado Civil -->
-                <mat-form-field class="w-full mr-5 mb-4 mt-5 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
+                <mat-form-field class="w-full mr-5 mb-4 mt-5 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
                     <mat-select [(ngModel)]="formulario.estadoCivil" searchable="true" placeholder="{{ t('EstadoCivil')}}" required>
                         <mat-option value="Solteiro">Solteiro</mat-option>
                         <mat-option value="Casado">Casado</mat-option>
@@ -75,31 +75,41 @@
 
 
              <!-- Administrador -->
-             <div class="flex-1 mr-5 mb-4  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix">
-                    <button mat-button (click)="openDialog()">{{ t('Administrador')}}</button>
-                    <mat-form-field>
-                        <input matInput placeholder="Administrador" required [(ngModel)]="formulario.administrador" readonly>
+                    <mat-form-field class="mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
+                        <input matInput placeholder="{{ t('Administrador')}}" required [(ngModel)]="formulario.administrador" readonly (click)="openDialog()">
                         <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
                     </mat-form-field>
-            </div>
 
 
             <!-- Funcionario -->
-            <button mat-button (click)="openDialogFuncionario()">{{ t('Funcionario')}}</button>
-            <mat-form-field class="flex-1 mr-5 mb-4  use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix w-full">
+            <mat-form-field class="mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
                 <mat-label>{{ t('Funcionario')}}</mat-label>
                 <input matInput placeholder="funcionarios" required [(ngModel)]="formulario.funcionarios" readonly view>
-                <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                <button mat-icon-button matPrefix (click)="openDialogFuncionario()">
+                    <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                </button>
             </mat-form-field>
 
         </div>
 
-            <!-- TODO: Botão flutuante salvar e voltar -->
-            <div mat-button class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
+            
+            <!-- <div mat-button class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
                 <button *ngIf="edit" (click)="delete()" mat-flat-button class="px-6 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-warn mat-mdc-button-base">{{ t('Excluir')}}</button>
                 <button mat-flat-button (click)="submit()" class="px-6 ml-3 mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-primary mat-mdc-button-base">{{ t('Salvar')}}</button>
-            </div>
+            </div> -->
         </fuse-card>
+
+        <div class="right-15 mb-10 mr-10 z-99 flex flex-row-reverse fixed bottom-0 right-0">
+
+            <a mat-fab matTooltip="Add" routerLink="new" (click)="submit()">
+              <mat-icon svgIcon="mat_outline:save"></mat-icon>
+            </a>
+
+            <a mat-fab class="mr-5" (click)="delete()" *ngIf="edit">
+                <mat-icon svgIcon="feather:trash"></mat-icon>
+            </a>
+        </div>
+
     </div>
 </div>
 </ng-container>

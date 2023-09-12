@@ -17,6 +17,9 @@ import { TranslocoModule, translocoConfig } from '@ngneat/transloco';
 import { SharedModule } from "../../../shared/shared.module";
 import { MatMenuModule } from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 
 
@@ -62,7 +65,9 @@ const formRoute: Route[] = [
         CommonModule,
         TranslocoModule,
         MatMenuModule,
-        SharedModule
+        SharedModule,
+        MatTableModule,
+        MatCheckboxModule,
     ]
 })
 export class FormularioModule { }
