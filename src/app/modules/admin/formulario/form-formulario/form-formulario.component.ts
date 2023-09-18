@@ -7,6 +7,8 @@ import { FuncionarioService } from '../../funcionario/shared/funcionario.service
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogListComponent } from 'app/shared/component/dialog-list/dialog-list.component';
+import { LocalStorageService } from 'app/shared/services/local-storage.service';
+import { DetailFuncionarioComponent } from '../../funcionario/detail-funcionario/detail-funcionario.component';
 
 @Component({
   selector: 'app-form-formulario',
@@ -16,9 +18,11 @@ import { DialogListComponent } from 'app/shared/component/dialog-list/dialog-lis
 export class FormFormularioComponent {
 
   formulario: Formulario = new Formulario();
-  funcionarios: Funcionario[] = [];
   edit: boolean = false;
   display: FormControl = new FormControl("", Validators.required);
+  administrador: Funcionario = new Funcionario();
+  funcionarios: Funcionario[] = [];
+  selectedFuncionarios: Funcionario[] = [];
 
   constructor(private formularioService: FormularioService,
               private funcionarioService: FuncionarioService,
@@ -105,8 +109,10 @@ export class FormFormularioComponent {
       );
   }
 
-  openDialog() {
+  openDialogAdministrador() {
     this.dialog.open(DialogListComponent, {
+      width: '500px',
+      height: '500px',
       data: {
         apiUrl: 'http://localhost:8080/api/funcionarios',
         type: 'radio',
@@ -115,14 +121,17 @@ export class FormFormularioComponent {
     }).afterClosed().subscribe(result => {
       if(result){
         this.formulario.administrador = result.id;
+        this.administrador = result;
+        console.log(this.formulario.administrador)
       }
     }
     );
   }
 
-  // TODO: finalizar testes de dimensionamento
   openDialogFuncionario(){
     this.dialog.open(DialogListComponent, {
+      width: '500px',
+      height: '500px',
       data: {
         apiUrl: 'http://localhost:8080/api/funcionarios',
         type: 'checkBox',
@@ -131,10 +140,30 @@ export class FormFormularioComponent {
     }).afterClosed().subscribe(result => {
       if(result){
         this.formulario.funcionarios = result.map((funcionario: Funcionario) => funcionario.id);
-        console.log(this.formulario.funcionarios);
+        this.selectedFuncionarios = result.map((funcionario: Funcionario) => funcionario.nome);
       }
     }
     );
   }
+
+  newFuncionario(){
+    this.dialog.open(DetailFuncionarioComponent, {
+    }).afterClosed().subscribe(result => {
+        if(result){
+          this.formulario.funcionarios = result.map((funcionario: Funcionario) => funcionario.id);
+          this.selectedFuncionarios = result;
+        }
+      });
+    }
+
+    newAdministrador(){
+      this.dialog.open(DetailFuncionarioComponent, {
+      }).afterClosed().subscribe(result => {
+          if(result){
+            this.formulario.administrador = result.id;
+            this.administrador = result;
+          }
+        });
+      }
 
 }

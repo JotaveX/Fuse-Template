@@ -1,15 +1,5 @@
-<!-- Choose state -->
-<div class="flex justify-center items-center h-full" *ngIf="!listState">
-  <button (click)="stateList()" mat-fab class="px-6">
-    <mat-icon svgIcon="mat_solid:folder_open"></mat-icon>
-  </button>
-  <button (click)="new()" mat-fab class="px-6 ml-3">
-      <mat-icon svgIcon="mat_solid:add"></mat-icon>
-  </button>
-</div>
-
 <!-- List State -->
-<div *ngIf="listState == 'list'">
+<div>
   <mat-form-field class="w-full" appearance="outline">
     <mat-label>Search</mat-label>
     <input matInput type="text" (keyup)="search($event.target.value)" />
@@ -37,7 +27,7 @@
   </div>
       
     <div class="right-0 bottom-0 absolute mb-10 mr-10 z-99">
-      <a mat-fab matTooltip="Add" routerLink="new" (click)="listState = null" class="mr-3">
+      <a mat-fab matTooltip="Add" routerLink="new" (click)="this.dialogRef.close()" class="mr-3">
         <mat-icon svgIcon="mat_solid:keyboard_backspace"></mat-icon>
       </a>
       <a mat-fab matTooltip="Add" routerLink="new" (click)="enviarSelecoes()">

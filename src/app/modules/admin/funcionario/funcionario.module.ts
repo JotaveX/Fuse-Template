@@ -28,7 +28,7 @@ const funcionarioRoute: Route[] = [
       component: DetailFuncionarioComponent
     },
     {
-        path     : 'dialog',
+        path     : 'new/:id',
         component: DetailFuncionarioComponent
     },
     {

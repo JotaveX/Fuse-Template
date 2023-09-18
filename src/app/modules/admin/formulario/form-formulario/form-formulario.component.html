@@ -1,6 +1,8 @@
 <ng-container *transloco="let t; read: 'forms'">
 <div class="flex flex-col flex-auto min-w-0">
 
+    <!-- TODO: Redimensionar os inputs -->
+    <!-- TODO: Dialogo chave estrangeira -->
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
         <fuse-card class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow overflow-hidden ng-untouched ng-pristine ng-valid">
@@ -76,18 +78,50 @@
 
              <!-- Administrador -->
                     <mat-form-field class="mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
-                        <input matInput placeholder="{{ t('Administrador')}}" required [(ngModel)]="formulario.administrador" readonly (click)="openDialog()">
+                        <input matInput placeholder="{{ t('Administrador')}}" required [(ngModel)]="administrador.nome" viewchield> 
                         <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
+                        <button mat-icon-button matSuffix [matMenuTriggerFor]="menu" class="h-full flex flex-col">
+                            <mat-icon svgIcon="feather:more-vertical"></mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="openDialogAdministrador()">
+                                <mat-icon svgIcon="feather:search"></mat-icon>
+                                Pesquisar
+                            </button>
+                            <button mat-menu-item (click)="newAdministrador()">
+                                <mat-icon svgIcon="feather:plus"></mat-icon>
+                                Adicionar
+                            </button>
+                            <button mat-menu-item *ngIf="formulario.administrador" (click)="formulario.administrador = ''; this.administrador = ''">
+                                <mat-icon svgIcon="feather:trash"></mat-icon>
+                                Apagar
+                            </button>
+                        </mat-menu>
                     </mat-form-field>
 
 
             <!-- Funcionario -->
             <mat-form-field class="mb-4 use-mat-bold fuse-mat-dense fuse-mat-emphasized-affix" appearance="outline">
                 <mat-label>{{ t('Funcionario')}}</mat-label>
-                <input matInput placeholder="funcionarios" required [(ngModel)]="formulario.funcionarios" readonly view>
-                <button mat-icon-button matPrefix (click)="openDialogFuncionario()">
+                <input matInput placeholder="funcionarios" required [(ngModel)]="selectedFuncionarios" readonly view>
                     <mat-icon matPrefix svgIcon="heroicons_solid:user"></mat-icon>
-                </button>
+                    <button mat-icon-button matSuffix [matMenuTriggerFor]="menu1" class="h-full flex flex-col">
+                        <mat-icon svgIcon="feather:more-vertical"></mat-icon>
+                    </button>
+                    <mat-menu #menu1="matMenu">
+                        <button mat-menu-item (click)="openDialogFuncionario()">
+                            <mat-icon svgIcon="feather:search"></mat-icon>
+                            Pesquisar
+                        </button>
+                        <button mat-menu-item (click)="newFuncionario()">
+                            <mat-icon svgIcon="feather:plus"></mat-icon>
+                            Adicionar
+                        </button>
+                        <button mat-menu-item *ngIf="formulario.funcionarios" (click)="formulario.funcionarios = ''">
+                            <mat-icon svgIcon="feather:trash"></mat-icon>
+                            Apagar
+                        </button>
+                    </mat-menu>
             </mat-form-field>
 
         </div>

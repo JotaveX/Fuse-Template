@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Inject, OnInit  } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -17,7 +18,6 @@ export class DialogListComponent implements OnInit {
   list: any[] = [];
   selectedItems: any[] = [];
   private debounceSubject = new Subject<string>();
-  listState: string;
 
 
   ngOnInit(): void {
@@ -28,19 +28,14 @@ export class DialogListComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef <DialogListComponent>,
      @Inject(MAT_DIALOG_DATA) public data: { apiUrl: string, type: string, class: string },
       private http: HttpClient, private funcionarioService: FuncionarioService,
-      private router: Router,
-      private dialog: MatDialog) {
+      private dialog: MatDialog) { 
     this.debounceSubject.pipe(debounceTime(500)).subscribe((valorDoInput) => {
       this.searchByName(valorDoInput);
     });
   }
   
   new(){
-    this.dialog.open(DetailFuncionarioComponent).afterClosed().subscribe((result) => {
-      this.fetchData();
-      this.listState = 'list';
-      this.dialogRef.updateSize('500px', '500px');
-    });
+    this.dialog.open(DetailFuncionarioComponent);
   }
 
   fetchData() {
@@ -75,10 +70,5 @@ export class DialogListComponent implements OnInit {
       , error => {
         console.log(error);
       });
-  }
-
-  stateList(){
-    this.listState = 'list';
-    this.dialogRef.updateSize('500px', '500px');
   }
 }
