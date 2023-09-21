@@ -7,7 +7,6 @@ import { FuncionarioService } from '../../funcionario/shared/funcionario.service
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogListComponent } from 'app/shared/component/dialog-list/dialog-list.component';
-import { LocalStorageService } from 'app/shared/services/local-storage.service';
 import { DetailFuncionarioComponent } from '../../funcionario/detail-funcionario/detail-funcionario.component';
 
 @Component({
