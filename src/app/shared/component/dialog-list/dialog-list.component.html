@@ -1,37 +1,80 @@
 <!-- List State -->
+<!-- TODO: Diminuir check/radio -->
 <div>
-  <mat-form-field class="w-full" appearance="outline">
-    <mat-label>Search</mat-label>
-    <input matInput type="text" (keyup)="search($event.target.value)" />
-    <button mat-icon-button matSuffix>
-      <mat-icon>search</mat-icon>
-    </button>
-  </mat-form-field>
-
-  <div class="item-selector" *ngIf="data.type == 'checkBox'">
-    <mat-list>
-      <mat-list-item *ngFor="let item of list">
-        <label>
-          <mat-checkbox [(ngModel)]="item.selected"> {{ item.nome }}</mat-checkbox>
-        </label>
-      </mat-list-item>
-    </mat-list>
+    <div class="sticky top-0 z-99 bg-white">
+      <mat-form-field class="w-full sticky">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" (keyup)="search($event.target.value)" />
+        <button mat-icon-button matSuffix [matMenuTriggerFor]="menu" class="h-full flex flex-col">
+          <mat-icon svgIcon="filter_alt"></mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="changeOrder('alfabetica')">
+            <mat-icon svgIcon="mat_outline:sort_by_alpha"></mat-icon>
+            Alfabetica
+          </button>
+          <button mat-menu-item (click)="changeOrder('codigo')">
+            <mat-icon svgIcon="mat_outline:check_box_outline_blank"></mat-icon>
+            Codigo
+          </button>
+        </mat-menu>
+      </mat-form-field>
   </div>
 
-  <div class="item-selector" *ngIf="data.type == 'radio'">
-        <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        [(ngModel)]="selectedItems">
-            <mat-radio-button [value]="item" *ngFor="let item of list"> {{ item.nome }}</mat-radio-button>
-        </mat-radio-group>
-  </div>
+
+
+  <div class="item-selector">
+    <table mat-table [dataSource]="list" class="mat-elevation-z8">
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="checkbox">
+        <mat-header-cell *matHeaderCellDef> <mat-checkbox [(ngModel)]="selectAll" (change)="toggleSelectAll()"></mat-checkbox> </mat-header-cell>
+        <mat-cell *matCellDef="let list"> 
+          <mat-checkbox [(ngModel)]="list.selected" [value]="list"></mat-checkbox>
+        </mat-cell>
+      </ng-container>
+      <!-- Radio column -->
+      <ng-container matColumnDef="radio">
+        <mat-header-cell *matHeaderCellDef> Radio </mat-header-cell>
+        <mat-cell *matCellDef="let list"> 
+          <mat-radio-button (click)="this.radioSelected = list" [value]="list"></mat-radio-button>
+        </mat-cell>
+      </ng-container>
+      <!-- Position Column -->
+      <ng-container matColumnDef="codigo">
+        <mat-header-cell *matHeaderCellDef> Codigo </mat-header-cell>
+        <mat-cell *matCellDef="let list"> {{list.codigo}} </mat-cell>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="nome">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let list"> {{list.nome}} </mat-cell>
+      </ng-container>
       
-    <div class="right-0 bottom-0 absolute mb-10 mr-10 z-99">
-      <a mat-fab matTooltip="Add" routerLink="new" (click)="this.dialogRef.close()" class="mr-3">
-        <mat-icon svgIcon="mat_solid:keyboard_backspace"></mat-icon>
-      </a>
-      <a mat-fab matTooltip="Add" routerLink="new" (click)="enviarSelecoes()">
-        <mat-icon svgIcon="mat_outline:save"></mat-icon>
-      </a>
+      <mat-header-row *matHeaderRowDef="data.displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: data.displayedColumns;"></mat-row>
+    </table>
+    <!-- <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      [(ngModel)]="selectedItems"
+      class="space-y-2">
+      <mat-radio-button [value]="item" *ngFor="let item of list" class="flex items-center"> 
+        <strong>{{item.codigo}}</strong>
+        <span class="ml-2 italic">{{item.nome}}</span>
+      </mat-radio-button>
+    </mat-radio-group> -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons aria-label="Select page of list"></mat-paginator>
   </div>
+  
+      
+    <div class="sticky bottom-0 z-99">
+      <div class="flex justify-end">
+        <a mat-fab matTooltip="Add" routerLink="new" (click)="this.dialogRef.close()" class="mr-3">
+          <mat-icon svgIcon="mat_solid:keyboard_backspace"></mat-icon>
+        </a>
+        <a mat-fab matTooltip="Add" routerLink="new" (click)="enviarSelecoes()">
+          <mat-icon svgIcon="mat_outline:save"></mat-icon>
+        </a>
+      </div>
+    </div> 
 </div>

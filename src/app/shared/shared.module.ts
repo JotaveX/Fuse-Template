@@ -13,6 +13,10 @@ import { DialogListComponent } from './component/dialog-list/dialog-list.compone
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 
@@ -30,7 +34,10 @@ import {MatRadioModule} from '@angular/material/radio';
         MatStepperModule,
         MatCheckboxModule,
         MatListModule,
-        MatRadioModule
+        MatRadioModule,
+        MatMenuModule,
+        MatTableModule,
+        MatPaginatorModule
     ],
     exports: [
         CommonModule,

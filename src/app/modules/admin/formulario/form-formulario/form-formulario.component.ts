@@ -21,7 +21,7 @@ export class FormFormularioComponent {
   display: FormControl = new FormControl("", Validators.required);
   administrador: Funcionario = new Funcionario();
   funcionarios: Funcionario[] = [];
-  selectedFuncionarios: Funcionario[] = [];
+  selectedFuncionarios: string[] = [];
 
   constructor(private formularioService: FormularioService,
               private funcionarioService: FuncionarioService,
@@ -61,6 +61,10 @@ export class FormFormularioComponent {
           this.formulario = data;
           this.formulario.administrador = this.formulario.administrador._id;
           this.formulario.funcionarios = this.formulario.funcionarios.map((funcionario: Funcionario) => funcionario._id);
+          this.selectedFuncionarios = data.funcionarios.map((funcionario: Funcionario) => funcionario.nome);
+          console.log(this.selectedFuncionarios);
+          this.administrador = this.formulario.administrador;
+          console.log('administrador', this.administrador);
           console.log(this.formulario);
         }
       );
@@ -110,12 +114,13 @@ export class FormFormularioComponent {
 
   openDialogAdministrador() {
     this.dialog.open(DialogListComponent, {
-      width: '500px',
-      height: '500px',
+      width: '1000px',
+      height: '550px',
       data: {
         apiUrl: 'http://localhost:8080/api/funcionarios',
         type: 'radio',
-        class: 'funcionario'
+        class: 'funcionario',
+        displayedColumns: ['radio', 'codigo', 'nome' ]
       }
     }).afterClosed().subscribe(result => {
       if(result){
@@ -129,12 +134,13 @@ export class FormFormularioComponent {
 
   openDialogFuncionario(){
     this.dialog.open(DialogListComponent, {
-      width: '500px',
-      height: '500px',
+      width: '1000px',
+      height: '550px',
       data: {
         apiUrl: 'http://localhost:8080/api/funcionarios',
         type: 'checkBox',
-        class: 'funcionario'
+        class: 'funcionario',
+        displayedColumns: ['checkbox', 'codigo', 'nome' ]
       }
     }).afterClosed().subscribe(result => {
       if(result){
@@ -149,8 +155,8 @@ export class FormFormularioComponent {
     this.dialog.open(DetailFuncionarioComponent, {
     }).afterClosed().subscribe(result => {
         if(result){
-          this.formulario.funcionarios = result.map((funcionario: Funcionario) => funcionario.id);
-          this.selectedFuncionarios = result;
+          this.formulario.funcionarios = result.id;
+          this.selectedFuncionarios = result.nome;
         }
       });
     }
