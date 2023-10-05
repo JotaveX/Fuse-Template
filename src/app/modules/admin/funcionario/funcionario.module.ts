@@ -13,6 +13,7 @@ import { FuseCardModule } from '@fuse/components/card';
 import { SharedModule } from "../../../shared/shared.module";
 import { FormComponent } from 'app/shared/component/form/form.component';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { GenericListComponent } from 'app/shared/component/generic-list/generic-list.component';
 
 
 const funcionarioRoute: Route[] = [
@@ -35,6 +36,10 @@ const funcionarioRoute: Route[] = [
     {
         path     : 'genericForm',
         component: FormComponent
+    },
+    {
+        path     : 'genericList',
+        component: GenericListComponent
     }
 
 ];

@@ -16,6 +16,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { GenericListComponent } from './component/generic-list/generic-list.component';
 
 
 
@@ -48,7 +49,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     declarations: [
     
     FormComponent,
-          DialogListComponent
+          DialogListComponent,
+          GenericListComponent
   ]
 })
 export class SharedModule
