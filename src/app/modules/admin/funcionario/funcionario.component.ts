@@ -22,6 +22,7 @@ export class FuncionarioComponent {
   }
 
   funcionarios: Funcionario[];
+  columns: any[] = ['nome', 'codigo', 'ativo'];
 
   ngOnInit() {
     this.getFuncionarios();

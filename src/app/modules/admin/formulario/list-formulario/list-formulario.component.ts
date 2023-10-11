@@ -4,6 +4,7 @@ import { FormularioService } from '../shared/formulario.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CommunicationService } from 'app/shared/communication.service';
+import { GenericList } from 'app/shared/models/generic-list';
 
 @Component({
   selector: 'app-list-formulario',
@@ -12,11 +13,12 @@ import { CommunicationService } from 'app/shared/communication.service';
 })
 export class ListFormularioComponent implements OnDestroy {
 
-
+// TODO: Coplumns virar objeto com type e name
   listState: any = 'list';
   private subscription: Subscription;
   formularios: Formulario[];
-  displayedColumns: string[] = ['Opções','Select','Codigo', 'Funcionario', 'Data', 'Estado Civil'];
+  displayedColumns: string[] = ['Codigo', 'Data', 'Estado Civil'];
+  columns: GenericList[] = [{columns: 'Codigo', type: 'number'}, {columns: 'Data', type: 'date'}, {columns: 'Estado Civil', type: 'string'}];
 
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FuseCardModule } from '@fuse/components/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,13 +38,17 @@ import { GenericListComponent } from './component/generic-list/generic-list.comp
         MatRadioModule,
         MatMenuModule,
         MatTableModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        NgSwitch,
+        NgSwitchCase,
+        NgSwitchDefault
     ],
     exports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        MatStepperModule
+        MatStepperModule,
+        GenericListComponent
     ],
     declarations: [
     
