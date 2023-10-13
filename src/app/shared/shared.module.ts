@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FuseCardModule } from '@fuse/components/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,6 +13,11 @@ import { DialogListComponent } from './component/dialog-list/dialog-list.compone
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { GenericListComponent } from './component/generic-list/generic-list.component';
+
 
 
 
@@ -30,18 +35,26 @@ import {MatRadioModule} from '@angular/material/radio';
         MatStepperModule,
         MatCheckboxModule,
         MatListModule,
-        MatRadioModule
+        MatRadioModule,
+        MatMenuModule,
+        MatTableModule,
+        MatPaginatorModule,
+        NgSwitch,
+        NgSwitchCase,
+        NgSwitchDefault
     ],
     exports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        MatStepperModule
+        MatStepperModule,
+        GenericListComponent
     ],
     declarations: [
     
     FormComponent,
-          DialogListComponent
+          DialogListComponent,
+          GenericListComponent
   ]
 })
 export class SharedModule

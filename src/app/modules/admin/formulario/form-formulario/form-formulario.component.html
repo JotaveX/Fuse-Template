@@ -1,7 +1,6 @@
 <ng-container *transloco="let t; read: 'forms'">
 <div class="flex flex-col flex-auto min-w-0">
 
-    <!-- TODO: Redimensionar os inputs -->
     <!-- TODO: Dialogo chave estrangeira -->
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
@@ -117,7 +116,7 @@
                             <mat-icon svgIcon="feather:plus"></mat-icon>
                             Adicionar
                         </button>
-                        <button mat-menu-item *ngIf="formulario.funcionarios" (click)="formulario.funcionarios = ''">
+                        <button mat-menu-item *ngIf="formulario.funcionarios" (click)="formulario.funcionarios = '' ; this.selectedFuncionarios = ''">
                             <mat-icon svgIcon="feather:trash"></mat-icon>
                             Apagar
                         </button>

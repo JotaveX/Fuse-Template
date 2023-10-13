@@ -1,0 +1,53 @@
+<!-- <table mat-table [dataSource]="dataSource">
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="isObject(element[column]) else notObject">
+          {{ element[column].nome }}
+        </ng-container>
+        <ng-template #notObject>
+          {{ element[column] }}
+        </ng-template>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table>
+   -->
+
+   <table mat-table [dataSource]="dataSource">
+    <ng-container *ngFor="let column of columns; let i = index" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef>{{ header[i] }}</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container [ngSwitch]="typeOf(element[column.columns])">
+          <ng-container *ngSwitchCase="'object'">
+            {{ element[column].nome }}
+          </ng-container>
+          <ng-container *ngSwitchCase="'string'">
+            {{ element[column.columns] }}
+          </ng-container>
+          <ng-container *ngSwitchCase="'date'">
+            {{ element[column.columns] | date:"dd/MM/yyyy" }}
+          </ng-container>
+          <ng-container *ngSwitchCase="'array'">
+            {{ element[column.columns].join(', ') }}
+          </ng-container>
+          <ng-container *ngSwitchCase="'objectArray'">
+            <ng-container *ngFor="let obj of element[column]; let last = last">
+              {{ obj.nome }}{{ !last ? ', ' : '.' }}
+            </ng-container>
+          </ng-container>
+          <!-- Adicione mais casos para outros tipos de dados, se necessário -->
+          <ng-container *ngSwitchDefault>
+            {{ element[column] }}
+          </ng-container>
+        </ng-container>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table>
+  
+  

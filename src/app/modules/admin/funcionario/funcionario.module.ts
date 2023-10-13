@@ -12,6 +12,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { FuseCardModule } from '@fuse/components/card';
 import { SharedModule } from "../../../shared/shared.module";
 import { FormComponent } from 'app/shared/component/form/form.component';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { GenericListComponent } from 'app/shared/component/generic-list/generic-list.component';
 
 
 const funcionarioRoute: Route[] = [
@@ -34,6 +36,10 @@ const funcionarioRoute: Route[] = [
     {
         path     : 'genericForm',
         component: FormComponent
+    },
+    {
+        path     : 'genericList',
+        component: GenericListComponent
     }
 
 ];
@@ -46,7 +52,7 @@ const funcionarioRoute: Route[] = [
     ],
     imports: [
         RouterModule.forChild(funcionarioRoute),
-        FormsModule,
+        FormsModule,    
         MatButtonModule,
         CommonModule,
         MatIconModule,
@@ -54,7 +60,14 @@ const funcionarioRoute: Route[] = [
         MatInputModule,
         MatSelectModule,
         FuseCardModule,
-        SharedModule
-    ]
+        SharedModule,
+        MatDialogModule
+    ],
+    providers: [
+        {
+            provide: MatDialogRef,
+            useValue: {}
+        },
+    ],
 })
 export class FuncionarioModule { }

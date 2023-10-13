@@ -8,7 +8,9 @@
 
         <div class="flex flex-wrap">
 
-            <fuse-card class="mt-8 p-8 mr-5 rounded-2xl shadow ng-untouched ng-pristine ng-valid overflow-visible hover:shadow-lg "
+            <app-generic-list [dataSource]="funcionarios" [columns]="columns" class="w-full"></app-generic-list>
+
+            <!-- <fuse-card class="mt-8 p-8 mr-5 rounded-2xl shadow ng-untouched ng-pristine ng-valid overflow-visible hover:shadow-lg "
                     *ngFor="let funcionario of funcionarios" 
                     routerLink="edit/{{funcionario.id}}">
 
@@ -18,7 +20,7 @@
                         <div class="whitespace-nowrap ml-3">{{funcionario.nome}}</div>
                         
                     </div>
-            </fuse-card>
+            </fuse-card> -->
 
         </div>
 
